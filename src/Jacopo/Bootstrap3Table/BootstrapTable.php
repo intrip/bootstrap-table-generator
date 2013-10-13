@@ -70,7 +70,7 @@ class BootstrapTable
   * @throws InvalidArgumentException
   * @return  void
   */
-  protected function setConfig(array $configs = array() )
+  public function setConfig(array $configs = array() )
   {
     foreach($configs as $config_key => $config)
     {
