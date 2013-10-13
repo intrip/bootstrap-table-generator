@@ -34,9 +34,10 @@ $table->setConfig(array("table-hover"=>false,"table-condensed"=>true));
 $table->setHeader(array("firstCol") );
 // Add table rows
 $table->addRows(array("cell1","cell2" ), array("custom-class1"));
-// print the table
+// setup extra custom css classes for the table
 $table->setTableExtraClasses(array("extra-table"));
-
+// print the table
+echo $table; // equals to echo $table->getHtml();
 ```
 
 ###Methods overview
