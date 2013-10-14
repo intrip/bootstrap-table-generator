@@ -8,10 +8,10 @@ This package is fully tested and ready for use.
 The first requisite to run the package is to have Bootstrap 3 installed on your Machine.
 For more info see: <a href="http://getbootstrap.com/getting-started/" target="_blank">this link</a>.
 
-The next step is to install this package through Composer. Edit your project's `composer.json` file to require `"jacopo/bootstrap3tablegenerator": "dev-master"`.
+The next step is to install this package through Composer. Edit your project's `composer.json` file to require `"jacopo/bootstrap-3-table-generator": "dev-master"`.
 
 	"require": {
-		"jacopo/bootstrap3tablegenerator": "dev-master"
+		"jacopo/bootstrap-3-table-generator": "dev-master"
 	},
 	"minimum-stability" : "dev"
 
