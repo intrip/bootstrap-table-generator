@@ -1,5 +1,5 @@
 {
-    "name": "jacopo/bootstrap3tablegenerator",
+    "name": "jacopo/bootstrap-3-table-generator",
     "description": "Dynamic table generator for bootstrap 3",
     "keywords": ["generator", "table", "bootstrap","bootstrap3","create"],
     "license": "MIT",
