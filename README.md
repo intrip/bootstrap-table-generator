@@ -5,7 +5,10 @@ This package is fully tested and ready for use.
 
 ###Installation 
 
-Begin by installing this package through Composer. Edit your project's `composer.json` file to require `"jacopo/bootstrap3tablegenerator": "dev-master"`.
+The first requisite to run the package is to have Bootstrap 3 installed on your Machine.
+For more info see: <a href="http://getbootstrap.com/getting-started/" target="_blank">this link</a>.
+
+The next step is to install this package through Composer. Edit your project's `composer.json` file to require `"jacopo/bootstrap3tablegenerator": "dev-master"`.
 
 	"require": {
 		"jacopo/bootstrap3tablegenerator": "dev-master"
@@ -29,11 +32,16 @@ use Jacopo\Bootstrap3Table\BootstrapTable;
 // create the generator class
 $table = new BootstrapTable();
 // set the configuration
-$table->setConfig(array("table-hover"=>false,"table-condensed"=>true));
-// Set header content
+$table->setConfig(array("table-hover"=>false, "table-condensed"=>true, "table-striped"=>true ) );
+// set header content
 $table->setHeader(array("firstCol") );
-// Add table rows
-$table->addRows(array("cell1","cell2" ), array("custom-class1"));
+// add table row
+$table->addRows(array("cell1","cell2"), array("custom-class1"));
+// you can also add a bigger row
+$table->addRows(array("cell1","cell2","cell3"));
+// or add a smaller row
+$table->addRows(array("cell1"));
+
 // setup extra custom css classes for the table
 $table->setTableExtraClasses(array("extra-table"));
 // print the table
@@ -80,5 +88,12 @@ $table = new BootstrapTable();
 $table->addRows(array("First data column data"), array("custom-class1") );
 ```
 
+####Dynamic Size####
+
+Keep in mind that you dont have to set the size of the table, you can add as many rows as you want
+and the table size will adjust automatically!
+
+####Printing the table####
+
 When you're done setting up you table you can just do `echo $table` and you'll see the table as html.
-If you prefer you can get the html string of the table instead with `table->getHtml()` method.
+If you prefer you can get the html string of the table instead with the `table->getHtml()` method.
