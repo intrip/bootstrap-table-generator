@@ -38,11 +38,11 @@ abstract class TableLine
 		$tag = $this->getTagRow();
 		$classes = $this->getHtmlClasses();
 
-		$html = "\t<tr{$classes}>\n";
+		$html = "\t\t<tr{$classes}>\n";
 
 		foreach($this->data as $data)
 		{
-			$html.="\t\t<{$tag}>$data</{$tag}>\n";
+			$html.="\t\t\t<{$tag}>$data</{$tag}>\n";
 		}
 
 		$this->data_html = $html;

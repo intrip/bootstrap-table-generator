@@ -106,7 +106,7 @@ class BootstrapTableTest extends PHPUnit_Framework_TestCase
 		$this->table->addRows($row_fill_array);
 		$row_fill = new TableRow($row_fill_array);
 
-		$expected_filler= "\t</tr>\n";
+		$expected_filler= "\t\t</tr>\n";
 		$this->assertEquals($expected_filler, $this->table->fillWithEmptyCells($row_fill,"tag") );
 
 		$row_max_array = array("one","two","three","four");
@@ -116,9 +116,9 @@ class BootstrapTableTest extends PHPUnit_Framework_TestCase
 		$row_two = new TableRow($row_two_array);
 		$this->table->addRows($row_two_array);
 
-		$expected_filler = "\t\t<tag></tag>\n";
-		$expected_filler.= "\t\t<tag></tag>\n";
-		$expected_filler.= "\t</tr>\n";
+		$expected_filler = "\t\t\t<tag></tag>\n";
+		$expected_filler.= "\t\t\t<tag></tag>\n";
+		$expected_filler.= "\t\t</tr>\n";
 
 		$this->assertEquals($expected_filler, $this->table->fillWithEmptyCells($row_two,"tag") );
 	}
@@ -165,12 +165,11 @@ class BootstrapTableTest extends PHPUnit_Framework_TestCase
 
 	public function testGetHtml()
 	{
-		// test responsive
+		// test responsive no header
 		$header = array("first","second");
 		$row1 = array("one","two");
 		$row2 = array("oneOnly");
 		$this->table->setConfig(array("table-responsive"=>true,"table-hover"=>true));
-		$this->table->setHeader($header);
 		$this->table->addRows($row1);
 		$class_row2 = array("row2-class");
 		$this->table->addRows($row2, $class_row2);
@@ -180,18 +179,16 @@ class BootstrapTableTest extends PHPUnit_Framework_TestCase
 
 		$expected_html = "<div class=\"table-responsive\">\n";
 		$expected_html.= "<table id=\"id1\" class=\"table table-hover test-extra-class \">\n";
-		$expected_html.= "\t<tr>\n";
-		$expected_html.= "\t\t<th>first</th>\n";
-		$expected_html.= "\t\t<th>second</th>\n";
-		$expected_html.= "\t</tr>\n";
-		$expected_html.= "\t<tr>\n";
-		$expected_html.= "\t\t<td>one</td>\n";
-		$expected_html.= "\t\t<td>two</td>\n";
-		$expected_html.= "\t</tr>\n";
-		$expected_html.= "\t<tr class=\"row2-class \">\n";
-		$expected_html.= "\t\t<td>oneOnly</td>\n";
-		$expected_html.= "\t\t<td></td>\n";
-		$expected_html.= "\t</tr>\n";
+		$expected_html.= "\t<tbody>\n";
+		$expected_html.= "\t\t<tr>\n";
+		$expected_html.= "\t\t\t<td>one</td>\n";
+		$expected_html.= "\t\t\t<td>two</td>\n";
+		$expected_html.= "\t\t</tr>\n";
+		$expected_html.= "\t\t<tr class=\"row2-class \">\n";
+		$expected_html.= "\t\t\t<td>oneOnly</td>\n";
+		$expected_html.= "\t\t\t<td></td>\n";
+		$expected_html.= "\t\t</tr>\n";
+		$expected_html.= "\t</tbody>\n";
 		$expected_html.= "</table>\n";
 		$expected_html.= "</div>\n";
 
@@ -207,21 +204,25 @@ class BootstrapTableTest extends PHPUnit_Framework_TestCase
 		$this->table->addRows($row2);
 
 		$expected_html= "<table  class=\"table table-hover table-striped \">\n";
-		$expected_html.= "\t<tr>\n";
-		$expected_html.= "\t\t<th>first</th>\n";
-		$expected_html.= "\t\t<th>second</th>\n";
-		$expected_html.= "\t\t<th></th>\n";
-		$expected_html.= "\t</tr>\n";
-		$expected_html.= "\t<tr>\n";
-		$expected_html.= "\t\t<td>one</td>\n";
-		$expected_html.= "\t\t<td>two</td>\n";
-		$expected_html.= "\t\t<td>three</td>\n";
-		$expected_html.= "\t</tr>\n";
-		$expected_html.= "\t<tr>\n";
-		$expected_html.= "\t\t<td>oneOnly</td>\n";
-		$expected_html.= "\t\t<td></td>\n";
-		$expected_html.= "\t\t<td></td>\n";
-		$expected_html.= "\t</tr>\n";
+		$expected_html.= "\t<thead>\n";
+		$expected_html.= "\t\t<tr>\n";
+		$expected_html.= "\t\t\t<th>first</th>\n";
+		$expected_html.= "\t\t\t<th>second</th>\n";
+		$expected_html.= "\t\t\t<th></th>\n";
+		$expected_html.= "\t\t</tr>\n";
+		$expected_html.= "\t</thead>\n";
+		$expected_html.= "\t</tbody>\n";
+		$expected_html.= "\t\t<tr>\n";
+		$expected_html.= "\t\t\t<td>one</td>\n";
+		$expected_html.= "\t\t\t<td>two</td>\n";
+		$expected_html.= "\t\t\t<td>three</td>\n";
+		$expected_html.= "\t\t</tr>\n";
+		$expected_html.= "\t\t<tr>\n";
+		$expected_html.= "\t\t\t<td>oneOnly</td>\n";
+		$expected_html.= "\t\t\t<td></td>\n";
+		$expected_html.= "\t\t\t<td></td>\n";
+		$expected_html.= "\t\t</tr>\n";
+		$expected_html.= "\t</tbody>\n";
 		$expected_html.= "</table>\n";
 		$expected_html.= "</div>\n";
 

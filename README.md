@@ -33,7 +33,7 @@ use Jacopo\Bootstrap3Table\BootstrapTable;
 $table = new BootstrapTable();
 // set the configuration
 $table->setConfig(array("table-hover"=>false, "table-condensed"=>true, "table-striped"=>true ) );
-// set header content
+// set header content (optional)
 $table->setHeader(array("firstCol") );
 // add table row
 $table->addRows(array("cell1","cell2"), array("custom-class1"));
@@ -71,7 +71,8 @@ $table = new BootstrapTable();
 $table->setTableExtraClasses(array("extra-custom-class") );
 ``` 
 
-`setHeader`: this method setup the header of the file, his only parameter is an array that contains the data of each `<th>`.
+`setHeader`: this method setup the header of the file, the only parameter is an array that contains the data of each `<th>`.
+Setting header is optional, if not setted the header won't be shown.
 
 Example:
 

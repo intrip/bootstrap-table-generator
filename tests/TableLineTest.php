@@ -42,7 +42,7 @@ class TableLineTest extends PHPUnit_Framework_TestCase
 		$html = $this->line->getHtml();
 
 $expected_html=<<<STR
-\t<tr class="class ">\n\t\t<tag>first</tag>\n\t\t<tag>second</tag>\n
+\t\t<tr class="class ">\n\t\t\t<tag>first</tag>\n\t\t\t<tag>second</tag>\n
 STR;
 		$this->assertEquals($expected_html, $html);
 	}

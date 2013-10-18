@@ -166,11 +166,11 @@ class BootstrapTable
       // add empty cells
       foreach( range(1,$diff) as $key)
       {
-        $html.="\t\t<{$tag_row}></{$tag_row}>\n";
+        $html.="\t\t\t<{$tag_row}></{$tag_row}>\n";
       }
     }
 
-    $html.="\t</tr>\n";
+    $html.="\t\t</tr>\n";
 
     return $html;
   }
@@ -276,13 +276,24 @@ class BootstrapTable
     $html.= "<table {$id_tag} class=\"table {$table_classes}\">\n";
 
     // table header
-    $html.= $this->header->getHtml();
-    $html.= $this->fillWithEmptyCells($this->header, $this->header->getTagRow() );
-    // table data
-    foreach($this->rows as $row)
+    if( isset($this->header) )
     {
-      $html.= $row->getHtml();
-      $html.= $this->fillWithEmptyCells($row, $row->getTagRow() );
+        $html.= "\t<thead>\n";
+        $html.= $this->header->getHtml();
+        $html.= $this->fillWithEmptyCells($this->header, $this->header->getTagRow() );
+        $html.= "\t</thead>\n";
+    }
+
+    // table data
+    if( isset($this->rows))
+    {
+      $html.= "\t<tbody>\n";
+      foreach($this->rows as $row)
+      {
+        $html.= $row->getHtml();
+        $html.= $this->fillWithEmptyCells($row, $row->getTagRow() );
+      }
+      $html.= "\t</tbody>\n";
     }
 
     $html.= "</table>\n";
