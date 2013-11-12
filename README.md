@@ -3,6 +3,8 @@
 This package is a dynamic table generator for Bootstrap 3 written in Php.
 This package is fully tested and ready for use.
 
+[![Build Status](https://travis-ci.org/intrip/bootstrap-table-generator.png)](https://travis-ci.org/intrip/bootstrap-table-generator)
+
 ###Installation 
 
 The first requisite to run the package is to include Bootstrap 3 in your Application.
