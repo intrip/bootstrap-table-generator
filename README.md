@@ -5,7 +5,7 @@ This package is fully tested and ready for use.
 
 [![Build Status](https://travis-ci.org/intrip/bootstrap-table-generator.png)](https://travis-ci.org/intrip/bootstrap-table-generator)
 
-###Installation 
+### Installation 
 
 The first requisite to run the package is to include Bootstrap 3 in your Application.
 For more info see: <a href="http://getbootstrap.com/getting-started/" target="_blank">this link</a>.
@@ -23,7 +23,7 @@ Next, update Composer from the Terminal:
 
 That's it. You successfully installed Bootstrap 3 table generator!
 
-###Usage
+### Usage
 
 To use te package you need to require `Jacopo\Bootstrap3Table\BootstrapTable`.
 Here is an example for a quick usage of the tool:
@@ -50,7 +50,7 @@ $table->setTableExtraClasses(array("extra-table"));
 echo $table; // equals to echo $table->getHtml();
 ```
 
-###Methods overview
+### Methods overview
 
 The methods available are:
 
@@ -91,12 +91,12 @@ $table = new BootstrapTable();
 $table->addRows(array("First data column data"), array("custom-class1") );
 ```
 
-####Dynamic Size####
+#### Dynamic Size
 
 Keep in mind that you dont have to set the size of the table, you can add as many rows as you want
 and the table size will adjust automatically!
 
-####Printing the table####
+#### Printing the table
 
 When you're done setting up you table you can just do `echo $table` and you'll see the table as html.
 If you prefer you can get the html string of the table instead with the `table->getHtml()` method.
